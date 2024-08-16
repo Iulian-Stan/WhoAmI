@@ -33,7 +33,7 @@ module.exports = (_env, argv) => {
               options: {
                 modules: {
                   auto: (resourcePath, _resourceQuery, _resourceFragment) => {
-                    return /\\components\\\w+\.scss$/.test(resourcePath)
+                    return /\.scss$/.test(resourcePath)
                   }
                 },
                 sourceMap: devMode
