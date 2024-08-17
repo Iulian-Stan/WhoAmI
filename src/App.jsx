@@ -11,7 +11,6 @@ import ScrollTop from './components/ScrollTop';
 import Preloader from './components/Preloader';
 
 import AOS from 'aos';
-import PureCounter from '@srexi/purecounterjs';
 
 export default function App() {
 
@@ -25,8 +24,6 @@ export default function App() {
       once: true,
       mirror: false
     });
-    // Initialize PureCounter library 
-    new PureCounter();
     // Correct scrolling position upon page load for URLs containing hash links
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
@@ -74,7 +71,7 @@ export default function App() {
         <SectionStats stats={data.stats} />
         <SectionSkills skills={data.skills} technologies={data.technologies} />
         <SectionResume resume={data.resume} education={data.education} work={data.work_experience} />
-        {/* <SectionProjects /> */}
+        <SectionProjects />
       </main>
       <Footer/>
       <ScrollTop />

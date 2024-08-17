@@ -1,18 +1,26 @@
 import React, { useEffect, useRef } from 'react';
 import * as style from './SectionSkills.scss';
+import useOnScreen from '../hooks/UseOInScreen';
 
 export default function SectionSkills({ skills, technologies }) {
 
-  const refs = useRef([]);
+  const ref = useRef();
+  const isVisible = useOnScreen(ref);
 
+  const refs = useRef([]);
   useEffect(() => {
-    refs.current.forEach(el => {
-      el.style.width = el.getAttribute('aria-valuenow') + '%';
-    });
-  }, []);
+    if (!isVisible) {
+      return;
+    }
+    setTimeout(() => {
+      refs.current.forEach(el => {
+        el.style.width = el.getAttribute('aria-valuenow') + '%';
+      });
+    }, 600);
+  }, [isVisible]);
 
   return (
-    <section id='skills' className={style.skills + ' section'}>
+    <section ref={ref} id='skills' className={style.skills + ' section'}>
 
       <div className='container section-title' data-aos='fade-up'>
         <h2>Skills</h2>

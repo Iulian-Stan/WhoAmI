@@ -8,7 +8,7 @@ export default function SectionAbout({ bio }) {
     let currentTime = new Date().getTime() * 0.001;
     let birthTime = new Date(bio.birthdate).getTime() * 0.001;
     return Math.floor((currentTime - birthTime) / 31557600);
-  })
+  });
 
   return (
     <section id='about' className={style.about + ' section'}>
@@ -30,18 +30,18 @@ export default function SectionAbout({ bio }) {
             <div className='row'>
               <div className='col-lg-6'>
                 <ul>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Birthday:</strong> <span>{bio.birthdate}</span></li>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Website:</strong> <span><a href={bio.website}>site link</a></span></li>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Nationality:</strong> <span>{bio.nationality}</span></li>
-                  <li><i className='bi bi-chevron-right'></i> <strong>City:</strong> <span>{bio.city}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Birthday:</strong> <span>{bio.birthdate}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Website:</strong> <span><a href={bio.website}>site link</a></span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Nationality:</strong> <span>{bio.nationality}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>City:</strong> <span>{bio.city}</span></li>
                 </ul>
               </div>
               <div className='col-lg-6'>
                 <ul>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Age:</strong> <span>{age()}</span></li>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Degree:</strong> <span>{bio.degree}</span></li>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Email:</strong> <span>{bio.email}</span></li>
-                  <li><i className='bi bi-chevron-right'></i> <strong>Work Place:</strong> <span>{bio.work}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Age:</strong> <span>{age()}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Degree:</strong> <span>{bio.degree}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Email:</strong> <span>{bio.email}</span></li>
+                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Work Place:</strong> <span>{bio.work}</span></li>
                 </ul>
               </div>
             </div>

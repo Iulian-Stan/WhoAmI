@@ -140,12 +140,12 @@
   "stats": [
     {
       "title": "Open Repositories",
-      "class": "bi-github",
+      "class": "fa-brands fa-github",
       "count": 39
     },
     {
       "title": "Free Certifications",
-      "class": "bi-clipboard-check",
+      "class": "fa-solid fa-certificate",
       "count": 29
     }
   ]

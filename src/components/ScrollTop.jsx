@@ -28,7 +28,7 @@ export default function ScrollTop() {
 
   return (
     <a href='#' ref={ref} onClick={scrollTop} className={style.scroll_top + ' d-flex align-items-center justify-content-center'}>
-      <i className='bi bi-arrow-up-short'></i>
+      <i className='fa-solid fa-arrow-up'></i>
     </a>
   );
 }

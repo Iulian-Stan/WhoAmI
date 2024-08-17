@@ -33,7 +33,7 @@ module.exports = (_env, argv) => {
               options: {
                 modules: {
                   auto: (resourcePath, _resourceQuery, _resourceFragment) => {
-                    return /\.scss$/.test(resourcePath)
+                    return /components.*\.scss$/.test(resourcePath)
                   }
                 },
                 sourceMap: devMode
@@ -49,7 +49,7 @@ module.exports = (_env, argv) => {
           ]
         },
         {
-          test: /\.(png|jpe?g|gif)$/,
+          test: /\.(png|jpe?g|gif|webp)$/,
           type: 'asset/resource'
         },
         {

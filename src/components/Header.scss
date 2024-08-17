@@ -12,7 +12,7 @@
   left: 0;
   bottom: 0;
   padding: 0 15px;
-  width: 300px;
+  width: 250px;
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
   z-index: 997;
@@ -48,29 +48,55 @@
 }
 
 .header .social_links a {
-  font-size: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  color: var(--default-color);
-  margin: 0 2px;
-  border-radius: 50%;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  transition: 0.3s;
+  margin: 0 5px;
 }
 
-.header .social_links a:hover {
+.header .social_links a i {
+  position: relative;
+  color: var(--default-color);
+  font-size: 20px;
+  margin: 0 7px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px
+}
+
+.header .social_links a i::before {
+  position: relative;
+  z-index: 1
+}
+
+.header .social_links a i::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--default-color);
+  border-radius: 3px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg)
+}
+
+.header .social_links a i:hover {
   color: var(--contrast-color);
+}
+
+.header .social_links a i:hover::after {
   background: var(--accent-color);
+  border: 1px solid transparent;
+  z-index: 0
 }
 
 @media (min-width: 1200px) {
   .header~main,
-  .header~#footer {
-    margin-left: 300px;
+  .header~footer {
+    margin-left: 250px;
   }
 }
 
@@ -124,7 +150,7 @@
 .navmenu a,
 .navmenu a:focus {
   color: var(--nav-color);
-  padding: 15px 10px;
+  padding: 10px 45px;
   font-family: var(--nav-font);
   font-size: 16px;
   font-weight: 400;
@@ -135,10 +161,12 @@
   width: 100%;
 }
 
-.navmenu a .navicon,
-.navmenu a:focus .navicon {
+.navmenu a i,
+.navmenu a:focus i {
   font-size: 20px;
+  width: 30px;
   margin-right: 10px;
+  text-align: center;
 }
 
 .navmenu a .toggle_dropdown,
@@ -169,9 +197,9 @@
   color: var(--nav-hover-color);
 }
 
-.navmenu a:hover .navicon,
-.navmenu .active .navicon,
-.navmenu .active:focus .navicon {
+.navmenu a:hover i,
+.navmenu .active i,
+.navmenu .active:focus i {
   color: var(--accent-color);
 }
 
