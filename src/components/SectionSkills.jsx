@@ -34,7 +34,7 @@ export default function SectionSkills({ skills, technologies }) {
             technologies.map((technology, i) => (
               <div className='col-lg-6' key={i}>
                 <div className={style.progress}>
-                  <span className='skill'><span>{technology.stack}</span> <i className='val'>{technology.proficiency}%</i></span>
+                  <span className={style.skill}><span>{technology.stack}</span> <i className={style.val}>{technology.proficiency}%</i></span>
                   <div className={style.progress_bar_wrap}>
                     <div ref={el => refs.current[i] = el} className={style.progress_bar} role='progressbar' aria-valuenow={technology.proficiency} aria-valuemin='0' aria-valuemax='100'></div>
                   </div>

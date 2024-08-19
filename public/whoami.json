@@ -13,16 +13,14 @@
   ],
   "bio": {
     "about": "Hi, my name is Iulian and I am a senior software engineer. I am forever learner when it comes to latest advances in software and hardware technologies. I am keen on trying them in my own DIY projects.",
-    "intro": "Born and raised in Balti (Republic of Moldova). At this point I already have spent half of my life in Romania, first as a student and later as professional software engineer.",
-    "occupation": "Software Engineer",
-    "birthdate": "23 April 1989",
-    "website": "https://github.com/Iulian-Stan/WhoAmI/",
+    "intro": "Born and raised in Balti (Republic of Moldova), currently leaving in Bucharest (Romania). Holding a masters degree in Artificial Intelligence with 10+ years of experience in software engineering.",
+    "name": "Iulian Stan",
+    "birth": "23 April 1989",
     "nationality": "Moldova, Romania",
-    "city": "Bucharest, Romania",
+    "location": "Bucharest, Romania",
     "degree": "Master",
-    "email": "iulian.stan0450@gmail.com",
-    "work": "NXP Semiconductors",
-    "trivia": "I speak Romanian, Russian, English and French (in the order of proficiency). And can drive almost any vehicle category shown on my driving license." 
+    "languages": "Romanian, Russian, English, French",
+    "trivia": "I hold a driving license for almost all kinds of vehicles." 
   },
   "skills": "I am most experienced in the following technologies (frameworks and corresponding programming languages):",
   "technologies": [
