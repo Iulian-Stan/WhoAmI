@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import * as style from './SectionHero.scss';
-import img from '../img/hero-bg.webp';
+import img from '../img/hero-bg.jpg';
 
 export default function SectionHero({ keywords }) {
   // Create reference to store the DOM element containing the animation

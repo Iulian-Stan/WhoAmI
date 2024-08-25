@@ -102,7 +102,11 @@
   position: relative;
   color: #fff;
   margin: 0 13px;
-  z-index: 90
+}
+ 
+.projects .project_content .project_info a i::before {
+  position: relative;
+  z-index: 1
 }
 
 .projects .project_content .project_info a i::after {
@@ -113,13 +117,16 @@
   width: 40px;
   height: 40px;
   border: 1px solid #fff;
-  z-index: -1;
   border-radius: 3px;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg)
+}
+
+.projects .project_content .project_info a i:hover {
+  color: #fff
 }
 
 .projects .project_content .project_info a:nth-of-type(2) i::after {
@@ -129,8 +136,8 @@
 .projects .project_content .project_info a:hover i::after {
   background-color: var(--accent-color);
   border: transparent;
+  z-index: 0;
 }
-
 
 .projects .project_content:hover .project_info {
   opacity: 1;

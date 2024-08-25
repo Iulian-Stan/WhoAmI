@@ -30,16 +30,16 @@ export default function SectionAbout({ bio }) {
             <div className='row'>
               <div className='col-lg-6'>
                 <ul>
-                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Birth:</strong> <span>{bio.birth}</span></li>
-                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Nationality:</strong> <span>{bio.nationality}</span></li>
-                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Location:</strong> <span>{bio.location}</span></li>
+                  <li><i className='fa-solid fa-calendar-days'></i> <strong>Birth:</strong> <span>{bio.birth}</span></li>
+                  <li><i className='fa-solid fa-globe'></i> <strong>Nationality:</strong> <span>{bio.nationality}</span></li>
+                  <li><i className='fa-solid fa-location-dot'></i> <strong>Location:</strong> <span>{bio.location}</span></li>
                 </ul>
               </div>
               <div className='col-lg-6'>
                 <ul>
-                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Age:</strong> <span>{age()}</span></li>
-                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Degree:</strong> <span>{bio.degree}</span></li>
-                  <li><i className='fa-solid fa-chevron-right'></i> <strong>Languages:</strong> <span>{bio.languages}</span></li>
+                  <li><i className='fa-solid fa-calendar-check'></i> <strong>Age:</strong> <span>{age()}</span></li>
+                  <li><i className='fa-solid fa-graduation-cap'></i> <strong>Degree:</strong> <span>{bio.degree}</span></li>
+                  <li><i className='fa-solid fa-language'></i> <strong>Languages:</strong> <span>{bio.languages}</span></li>
                 </ul>
               </div>
             </div>

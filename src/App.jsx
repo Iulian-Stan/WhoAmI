@@ -68,10 +68,10 @@ export default function App() {
       <main>
         <SectionHero keywords={data.keywords} />
         <SectionAbout bio={data.bio} />
-        <SectionStats stats={data.stats} />
+        {/* <SectionStats stats={data.stats} /> */}
         <SectionSkills skills={data.skills} technologies={data.technologies} />
         <SectionResume resume={data.resume} education={data.education} work={data.work_experience} />
-        <SectionProjects />
+        {/* <SectionProjects /> */}
       </main>
       <Footer/>
       <ScrollTop />
