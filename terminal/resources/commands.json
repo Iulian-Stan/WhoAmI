@@ -1,0 +1,82 @@
+[
+  {
+    "command": "about",
+    "description": "Displays information about me",
+    "responseType": "code",
+    "value": [
+      "{",
+      "   \"name\" : \"Iulian STAN\",",
+      "   \"poste\" : \"Software Engineer\",",
+      "   \"experience\" : \"10 years\",",
+      "   \"city\" : \"Bucharest, Romania\"",
+      "}"
+    ]
+  },
+  {
+    "command": "experience",
+    "description": "Display the list of my professional experience",
+    "responseType": "table",
+    "headers": [
+      "Date",
+      "Company",
+      "Role",
+      "Description"
+    ],
+    "rows": [
+      [
+        "Present<br/>2017",
+        "NXP Semiconductors<br/>Bucharest, ROMANIA",
+        "Software Engineer<br/>Tech Lead",
+        "<ul><li>Redesign an existing application in compliance with new SRS</li><li>Create prototypes, design documents and software architecture</li><li>Clarify technical details of the requirements</li><li>Split requirements into stories/tasks</li><li>Clarify technical details and plan the implementation</li><li>Implement features and tests</li><li>Write documentation</li><li>Support customers and community users</li></ul>"
+      ],
+      [
+        "2017<br/>2015",
+        "Endava<br/>Chisinau, MOLDOVA",
+        "Software Engineer",
+        "<ul><li>Develop new micro-services</li><li>Adjust existing components</li><li>Providing web interface to ease the interaction with the server</li><li>Integrate developed components into a SaaS environment</li></ul>"
+      ],
+      [
+        "2015<br/>2014",
+        "Allied Testing<br/>Chisinau, MOLDOVA",
+        "Test Automation Engineer",
+        "<ul><li>Maintaining current test suit up to date (updating existing tests according to applications changes)</li><li>Extending the suite by implementing new test as per specifications from SAT test cases</li><li>Running automated test packs</li></ul>"
+      ]
+    ]
+  },
+  {
+    "command": "education",
+    "description": "Display the list of graduated universities",
+    "responseType": "table",
+    "headers": [
+      "Year",
+      "Degree",
+      "University",
+      "Description"
+    ],
+    "rows": [
+      [
+        "2014<br/>2012",
+        "Master's degree<br/>Artificial Intelligence",
+        "POLITEHNICA University<br/>Bucharest, ROMANIA",
+        "<ul><li>Knowledge Representation and Reasoning</li><li>Type Systems and Functional Programming</li><li>Symbolic and Statistical Learning</li><li>Multi-agent Systems</li><li>Natural Language Processing</li><li>Data Mining</li><li>Self-organizing Systems</li><li>Neural Networks</li></ul>"
+      ],
+      [
+        "2012<br/>2008",
+        "Bachelor's degree<br>Information Technology",
+        "Gheorghe Asachi University<br/>Iasi, ROMANIA",
+        "<ul><li>Computing system's fundamentals</li><li>Programming languages</li><li>Sequential and parallel algorithms</li><li>Computing system's architecture</li><li>Artificial intelligence</li><li>Databases</li><li>Embedded systems</li><li>Digital system analysis, synthesis and testing</li><li>Graphic processing systems</li><li>Distributed systems</li><li>Web technologies</li></ul>"
+      ]
+    ]
+  },
+  {
+    "command": "skills",
+    "description": "Display the list of my skills",
+    "responseType": "list",
+    "value": [
+      "Embedded C",
+      "C++, Boost",
+      "Node.js",
+      "React / JavaScript / Webpack"
+    ]
+  }
+]

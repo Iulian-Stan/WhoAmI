@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import * as style from './SectionAbout.scss';
+import * as style from './SectionAbout.module.scss';
 import img from '../img/profile.png';
 
 export default function SectionAbout({ bio }) {

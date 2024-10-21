@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import * as style from './SectionStats.scss';
+import * as style from './SectionStats.module.scss';
 import useOnScreen from '../hooks/UseOInScreen';
 
 export default function SectionStats({ stats }) {

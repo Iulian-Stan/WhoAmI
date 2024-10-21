@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
-import * as style from './SectionHero.scss';
+import * as style from './SectionHero.module.scss';
 import img from '../img/hero-bg.jpg';
 
 export default function SectionHero({ keywords }) {

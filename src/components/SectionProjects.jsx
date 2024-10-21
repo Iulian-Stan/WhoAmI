@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import * as style from './SectionProjects.scss';
+import * as style from './SectionProjects.module.scss';
 import img from '../img/project.webp';
 import GLightbox from 'glightbox';
 

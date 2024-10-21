@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import * as style from './SectionSkills.scss';
+import * as style from './SectionSkills.module.scss';
 import useOnScreen from '../hooks/UseOInScreen';
 
 export default function SectionSkills({ skills, technologies }) {

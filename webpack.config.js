@@ -5,53 +5,70 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (_env, argv) => {
   const devMode = argv.mode !== 'production';
+  const styleLoader = devMode ? 'style-loader' : MiniCssExtractPlugin.loader;
+  const cssLoader = {
+    loader: 'css-loader',
+    options: {
+      modules: true
+    }
+  };
+  const saasLoader = {
+    loader: 'sass-loader',
+    options: {
+      sourceMap: devMode
+    }
+  }
   return {
-    entry: './src/index.jsx', // Entry point of your application
+    entry: {
+      index: './src/index.jsx',
+      terminal: './terminal/index.jsx'
+    }, // Entry point of your application
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js', // Output bundle file name
+      filename: 'assets/js/[name].[contenthash:8].js', // Output bundle file name
+      assetModuleFilename: 'assets/resources/[name].[contenthash:8][ext][query]',
       clean: true
     },
     module: {
       rules: [
         // Rule to load JavaScript (uses .babelrc)
         {
-          test: /\.(js|jsx)$/,
+          test: /\.jsx$/,
           exclude: /node_modules/,
-          use: 'babel-loader'
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false
+            }
+          }
         },
-        // Rule to load CSS/SASS
+        // Rule to load CSS
         {
           test: /\.(css|scss)$/,
-          // exclude: /node_modules/,
+          include: /\.module\.css$/,
+          exclude: /node_modules/,
           use: [
-            // Inject CSS into the DOM in development and extract it into separate files in production
-            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // Interprets @import and url() like import/require() and resolves them
-            {
-              loader: 'css-loader',
-              options: {
-                modules: {
-                  auto: (resourcePath, _resourceQuery, _resourceFragment) => {
-                    return /components.*\.scss$/.test(resourcePath)
-                  }
-                },
-                sourceMap: devMode
-              }
-            },
-            // Loads a Sass/SCSS file and compiles it to CSS
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: devMode
-              }
-            }
+            styleLoader,
+            cssLoader,
+            saasLoader
           ]
         },
+        {
+          test: /\.(css|scss)$/,
+          exclude: /\.module\.css$/,
+          use: [
+            styleLoader,
+            'css-loader',
+            saasLoader
+          ]
+        },
+        // Rule to load Images
         {
           test: /\.(png|jpe?g|gif|webp)$/,
           type: 'asset/resource'
         },
+        // Rule to load Fonts
         {
           test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
           type: 'asset/resource'
@@ -59,21 +76,33 @@ module.exports = (_env, argv) => {
       ]
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx']
     },
     plugins: [
-      // Helps building index.html (adds bundle.js)
       new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'public', 'index.html')
+        template: path.join(__dirname, 'public', 'index.html'),
+        filename: 'old.html',
+        chunks: ['index'],
+      }),
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, 'public', 'index.html'),
+        filename: 'index.html',
+        chunks: ['terminal'],
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].css',
-        chunkFilename: '[id].css',
+        filename: 'assets/css/[name].[contenthash:8].css',
+        chunkFilename: 'assets/css/[id].[contenthash:8].css',
       }),
       new CopyWebpackPlugin({
         patterns: [{ from: 'public/whoami.json', toType: 'dir' }]
       })
     ],
+    optimization: {
+      splitChunks: {
+        // include all types of chunks
+        chunks: 'all'
+      }
+    },
     // Development server
     devServer: {
       port: 9000,

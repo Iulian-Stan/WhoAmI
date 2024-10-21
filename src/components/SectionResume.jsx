@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import * as style from './SectionResume.scss';
+import * as style from './SectionResume.module.scss';
 
 export default function SectionResume({ resume, education, work }) {
   return (

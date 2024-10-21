@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import * as style from './Header.scss';
+import * as style from './Header.module.scss';
 import img from '../img/profile.png';
 
 export default function Header({ social }) {

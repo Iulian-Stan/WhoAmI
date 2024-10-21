@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import * as style from './ScrollTop.scss';
+import * as style from './ScrollTop.module.scss';
 
 export default function ScrollTop() {
 
