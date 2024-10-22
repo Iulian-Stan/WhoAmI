@@ -12,16 +12,10 @@ module.exports = (_env, argv) => {
       modules: true
     }
   };
-  const saasLoader = {
-    loader: 'sass-loader',
-    options: {
-      sourceMap: devMode
-    }
-  }
   return {
     entry: {
-      index: './src/index.jsx',
-      terminal: './terminal/index.jsx'
+      'cv-page': './src/cv-page/index.jsx',
+      'cv-terminal': './src/cv-terminal/index.jsx'
     }, // Entry point of your application
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -45,23 +39,21 @@ module.exports = (_env, argv) => {
         },
         // Rule to load CSS
         {
-          test: /\.(css|scss)$/,
-          include: /\.module\.css$/,
+          test: /\.css$/,
           exclude: /node_modules/,
-          use: [
-            styleLoader,
-            cssLoader,
-            saasLoader
-          ]
-        },
-        {
-          test: /\.(css|scss)$/,
-          exclude: /\.module\.css$/,
-          use: [
-            styleLoader,
-            'css-loader',
-            saasLoader
-          ]
+          oneOf: [{
+            include: /\.module\.css$/,
+            use: [
+              styleLoader,
+              cssLoader
+            ]
+          }, {
+            exclude: /\.module\.css$/,
+            use: [
+              styleLoader,
+              'css-loader'
+            ]
+          }]
         },
         // Rule to load Images
         {
@@ -81,20 +73,20 @@ module.exports = (_env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(__dirname, 'public', 'index.html'),
-        filename: 'old.html',
-        chunks: ['index'],
+        filename: 'index2.html',
+        chunks: ['cv-page'],
       }),
       new HtmlWebpackPlugin({
         template: path.join(__dirname, 'public', 'index.html'),
         filename: 'index.html',
-        chunks: ['terminal'],
+        chunks: ['cv-terminal'],
       }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash:8].css',
         chunkFilename: 'assets/css/[id].[contenthash:8].css',
       }),
       new CopyWebpackPlugin({
-        patterns: [{ from: 'public/whoami.json', toType: 'dir' }]
+        patterns: [{ from: 'public/*.json', toType: 'dir' }]
       })
     ],
     optimization: {

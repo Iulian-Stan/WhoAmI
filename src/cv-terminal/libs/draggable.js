@@ -44,5 +44,5 @@ export function dragElement(element) {
 
   return () => {
     dragElement.removeEventListener('mousedown', dragMouseDown);
-  }
+  };
 }

@@ -69,7 +69,6 @@ export const actionCommands = [
         spread: 120,
         startVelocity: 45,
       });
-
       return 'Let\'s go !';
     }
   },
@@ -88,21 +87,21 @@ export const actionCommands = [
       return '🎆';
     }
   },
-  {
-    command: 'hohoho',
-    responseType: 'action',
-    execute: () => {
-      return '🎅🎁';
-    }
-  },
+  // {
+  //   command: 'hohoho',
+  //   responseType: 'action',
+  //   execute: () => {
+  //     return '🎅🎁';
+  //   }
+  // },
   {
     command: 'boo',
     responseType: 'action',
-    execute: () => {   
+    execute: () => {
       if (!document.body.classList.contains('halloween')) {
         // add image
         const imageUrl = new URL(
-          '../images/halloween-bg.jpg',
+          '../../common/images/halloween-bg.jpg',
           import.meta.url
         );
         const html = `<img src="${imageUrl}" class="halloween-bg" alt="Halloween background" />`;

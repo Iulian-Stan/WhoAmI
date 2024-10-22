@@ -80,8 +80,7 @@ export default function Terminal({ commands, actionCommands }) {
       purifiedCommand = purifiedCommand.replace(/</g, '&lt;').replace(/>/g, '&gt;');
       let html = '';
       if (commandObj === undefined) {
-        html = `'${purifiedCommand.split(' ')[0]
-          }' is not recognized as an internal command or external command, operable program or batch file.  Type the <code>help</code> command to display a list of available commands.`;
+        html = `'${purifiedCommand.split(' ')[0]}' is not recognized as an internal command or external command, operable program or batch file.  Type the <code>help</code> command to display a list of available commands.`;
       } else {
         if (commandObj.responseType === 'list' && Array.isArray(commandObj.value)) {
           html = '<ul>';
@@ -220,5 +219,5 @@ export default function Terminal({ commands, actionCommands }) {
         <div ref={terminalCliRef}></div>
       </div>
     </div>
-  )
+  );
 }

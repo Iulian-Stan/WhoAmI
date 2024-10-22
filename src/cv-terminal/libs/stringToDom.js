@@ -4,5 +4,5 @@
  * @returns {DocumentFragment}
  */
 export function stringToDom(html) {
-    return document.createRange().createContextualFragment(html);
+  return document.createRange().createContextualFragment(html);
 }
