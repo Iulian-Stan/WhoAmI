@@ -14,7 +14,6 @@ import { actionCommands } from './libs/actionCommands';
 /**
  * @type {Command[]} commands
  */
-// import commands from './resources/commands.json';
 
 export default function App() {
 

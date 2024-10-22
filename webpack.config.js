@@ -86,7 +86,7 @@ module.exports = (_env, argv) => {
         chunkFilename: 'assets/css/[id].[contenthash:8].css',
       }),
       new CopyWebpackPlugin({
-        patterns: [{ from: 'public/*.json', toType: 'dir' }]
+        patterns: [{ context: 'public/', from: '*.json', toType: 'dir' }]
       })
     ],
     optimization: {
