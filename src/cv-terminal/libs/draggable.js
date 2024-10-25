@@ -10,6 +10,11 @@ export function dragElement(element) {
   }
   dragElement.addEventListener('mousedown', dragMouseDown);
 
+  let rect = dragElement.getBoundingClientRect();
+  element.style.left = rect.x + 'px';
+  element.style.top = rect.y + 'px';
+  element.style.transform = 'none';
+
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();

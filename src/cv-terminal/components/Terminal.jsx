@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { useEventContext } from '../libs/EventContext';
 import DOMPurify from 'dompurify';
-import { dragElement } from '../libs/draggable';
 import * as style from './Terminal.module.css';
 
 const test = ` ______     __    __     ______   ______     ______     __    __     __     __   __     ______     __
@@ -11,22 +11,20 @@ const test = ` ______     __    __     ______   ______     ______     __    __  
 
 export default function Terminal({ commands, actionCommands }) {
 
-  const terminalRef = useRef();
   const terminalCliRef = useRef();
+  const MouseEmitter = useEventContext();
 
-  useEffect(() => {
-    if (!terminalRef) {
-      return;
+  MouseEmitter.on('mousedown', e => {
+    if (e.contains(terminalCliRef.current)) {
+      terminalCliRef.current.firstChild.firstChild.focus();
     }
-    const dragElementClean = dragElement(terminalRef.current);
-    return () => {
-      dragElementClean();
-    };
-  }, [terminalRef]);
+  });
 
   useEffect(() => {
-    if (!commands)
-      return;
+    if (!Array.isArray(commands))
+      commands = [];
+    if (!Array.isArray(actionCommands))
+      actionCommands = [];
 
     // add action commands
     commands.push(...actionCommands.filter(c => c.description));
@@ -205,19 +203,12 @@ export default function Terminal({ commands, actionCommands }) {
   }, []);
 
   return (
-    <div className={style.terminal} ref={terminalRef}>
-      <div className={style.terminal__header}>
-        <div className={`${style['fake-button']} ${style['fake-button--close']}`}></div>
-        <div className={`${style['fake-button']} ${style['fake-button--minimize']}`}></div>
-        <div className={`${style['fake-button']} ${style['fake-button--zoom']}`}></div>
+    <div className={style.terminal__body}>
+      <div className={style.terminal__banner}><pre>{test}</pre>
+        <div className={style.terminal__author}>Iulian STAN</div>
+        <p>Welcome to my CV! To view the available commands type <code>help</code>. To validate each command press <em>Enter</em>, you can use the <em>Tab</em> key to help you complete a command.</p>
       </div>
-      <div className={style.terminal__body}>
-        <div className={style.terminal__banner}><pre>{test}</pre>
-          <div className={style.terminal__author}>Iulian STAN</div>
-          <p>Welcome to my CV! To view the available commands type <code>help</code>. To validate each command press <em>Enter</em>, you can use the <em>Tab</em> key to help you complete a command.</p>
-        </div>
-        <div ref={terminalCliRef}></div>
-      </div>
+      <div ref={terminalCliRef}></div>
     </div>
   );
 }

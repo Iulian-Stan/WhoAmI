@@ -2,6 +2,7 @@ import confetti from 'canvas-confetti';
 import Fireworks from 'fireworks-js';
 import { stringToDom } from './stringToDom';
 import { darkMode } from './darkMode';
+import img from '../../common/images/halloween-bg.jpg';
 
 export const actionCommands = [
   {
@@ -100,11 +101,7 @@ export const actionCommands = [
     execute: () => {
       if (!document.body.classList.contains('halloween')) {
         // add image
-        const imageUrl = new URL(
-          '../../common/images/halloween-bg.jpg',
-          import.meta.url
-        );
-        const html = `<img src="${imageUrl}" class="halloween-bg" alt="Halloween background" />`;
+        const html = `<img src="${img}" class="halloween-bg" alt="Halloween background" />`;
         document.body.prepend(stringToDom(html));
         document.body.classList.add('halloween');
         darkMode(true);
