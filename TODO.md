@@ -1,5 +1,3 @@
-# Resume page
-
 # Minimize button logic
 # Maximize button logic
 # Close button logic

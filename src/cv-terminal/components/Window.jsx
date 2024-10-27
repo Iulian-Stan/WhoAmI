@@ -21,6 +21,13 @@ export default function Window({ children }) {
   });
 
   const handleResize = useCallback(() => {
+    windowRef.current.lastChild.classList.remove('mobile', 'tablet');
+    let rect = windowRef.current.getBoundingClientRect();
+    if (rect.width <= 380) {
+      windowRef.current.lastChild.classList.add('mobile');
+    } else if (rect.width <= 768) {
+      windowRef.current.lastChild.classList.add('tablet');
+    }
     // let rect = windowRef.current.getBoundingClientRect();
     // if (rect.x + rect.width > window.innerWidth)
     //   windowRef.current.style.width = window.innerWidth - rect.x + 'px';

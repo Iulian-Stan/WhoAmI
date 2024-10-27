@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import EventEmitter from './libs/EventEmitter';
 import { EventContext } from './libs/EventContext';
-import Terminal from './components/Terminal';
-import Window from './components/Window';
 import { actionCommands } from './libs/actionCommands';
-import Header from './components/Header';
-import ResumeMain from './components/ResumeMain';
+import Window from './components/Window';
+import Terminal from './components/terminal/Terminal';
+import Resume from './components/resume/Resume';
 
 /**
  * @typedef Command
@@ -42,11 +41,10 @@ export default function App() {
   return (
     <EventContext.Provider value={MouseEmitter}>
       <Window>
-        <Terminal commands={commands} actionCommands={actionCommands}/>
+        <Resume />
       </Window>
       <Window>
-        <Header />
-        <ResumeMain />
+        <Terminal commands={commands} actionCommands={actionCommands}/>
       </Window>
     </EventContext.Provider>
   );

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { useEventContext } from '../libs/EventContext';
+import { useEventContext } from '../../libs/EventContext';
 import DOMPurify from 'dompurify';
 import * as style from './Terminal.module.css';
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import * as style from './SectionHome.module.css';
-import img from '../../common/images/profile.png';
+import * as style from './Home.module.css';
+import img from '../../../../common/images/profile.png';
 
-export default function SectionHome() {
+export default function Home() {
   return (
     <section className={style.home}>
-      <div className={`${style.home__container} section bd-grid`}>
-        <div className={`${style.home__data} bd-grid`}>
+      <div className={`${style.home__container} section`}>
+        <div className={`${style.home__data}`}>
           <img src={img} alt="" className={`${style.home__img}`} />
 
           <h1 className={`${style.home__title}`}>STAN <b>IULIAN</b></h1>

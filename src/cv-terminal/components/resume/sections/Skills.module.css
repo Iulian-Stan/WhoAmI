@@ -1,0 +1,23 @@
+.skills__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skills__data {
+  display: grid;
+}
+
+.skills__name {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--mb-2);
+}
+
+.skills__circle {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  margin-right: .75rem;
+}

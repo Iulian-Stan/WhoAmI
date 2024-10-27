@@ -3,10 +3,12 @@
 }
 
 .home__container {
+  display: grid;
   gap: 3rem;
 }
 
 .home__data {
+  display: grid;
   gap: .5rem;
   text-align: center;
 }
@@ -29,6 +31,7 @@
 }
 
 .home__address {
+  display: grid;
   gap: 1rem;
 }
 
@@ -44,19 +47,26 @@
 }
 
 .home__button-mobile {
-  display: inline-block;
-  border: 2px solid var(--text-color);
-  color: var(--title-color);
-  padding: 1rem 2rem;
-  border-radius: 0.25rem;
-  transition: 0.3s;
-  font-weight: var(--font-medium);
-  margin-top: var(--mb-3);
+  display: none;
 }
 
 .home__button-mobile:hover {
   background-color: var(--text-color);
   color: var(--bg-color-container);
+}
+
+:global(.mobile),
+:global(.tablet) {
+  .home__button-mobile {
+    display: inline-block;
+    border: 2px solid var(--text-color);
+    color: var(--title-color);
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+    font-weight: var(--font-medium);
+    margin-top: var(--mb-3);
+  }
 }
 
 /*========== Button Dark/Light ==========*/
@@ -76,7 +86,7 @@
 
 /*========== Generate PDF button ==========*/
 .generate-pdf {
-  display: none;
+  display: inline-block;
   position: absolute;
   top: 2.2rem;
   left: 0;
@@ -87,4 +97,11 @@
 
 .generate-pdf:hover {
   color: var(--title-color);
+}
+
+:global(.mobile),
+:global(.tablet) {
+  .generate-pdf {
+    display: none;
+  }
 }

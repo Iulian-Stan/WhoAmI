@@ -1,0 +1,24 @@
+.languages__container {
+  display: grid;
+}
+
+.languages__content {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.languages__name {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--mb-2);
+}
+
+.languages__circle {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  margin-right: .75rem;
+}
