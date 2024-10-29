@@ -2,15 +2,15 @@ import React from 'react';
 import * as style from './Home.module.css';
 import img from '../../../../common/images/profile.png';
 
-export default function Home() {
+export default function Home({ bio }) {
   return (
     <section className={style.home}>
       <div className={`${style.home__container} section`}>
         <div className={`${style.home__data}`}>
           <img src={img} alt="" className={`${style.home__img}`} />
 
-          <h1 className={`${style.home__title}`}>STAN <b>IULIAN</b></h1>
-          <h3 className={`${style.home__profession}`}>Software engineer</h3>
+          <h1 className={`${style.home__title}`}>{bio.firstName} <b>{bio.lastName}</b></h1>
+          <h3 className={`${style.home__profession}`}>{bio.occupation}</h3>
 
           <div>
             {/* <!-- Button to download your CV saved in the pdf folder. Available for mobile --> */}
@@ -22,13 +22,13 @@ export default function Home() {
 
       <div className={`${style.home__address} bd-grid`}>
         <span className={`${style.home__information}`}>
-          <i className={`${style.home__icon} bx bx-map`}></i> Bucharest, ROMANIA
+          <i className={`${style.home__icon} bx bx-calendar`}></i> {bio.birth}
         </span>
         <span className={`${style.home__information}`}>
-          <i className={`${style.home__icon} bx bx-envelope`}></i> iulian.stan0450@gmail.com
+          <i className={`${style.home__icon} bx bx-map`}></i> {bio.location.city}, {bio.location.country}
         </span>
         <span className={`${style.home__information}`}>
-          <i className={`${style.home__icon} bx bx-phone`}></i> +123456789
+          <i className={`${style.home__icon} bx bxs-graduation`}></i> {bio.education}
         </span>
       </div>
       {/* <!-- Theme change button --> */}

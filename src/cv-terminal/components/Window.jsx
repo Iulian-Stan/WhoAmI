@@ -3,22 +3,24 @@ import { useEventContext } from '../libs/EventContext';
 import { dragElement } from '../libs/draggable';
 import * as style from './Window.module.css';
 
-export default function Window({ children }) {
+export default function Window({ children, close }) {
 
   const windowRef = useRef();
   const MouseEmitter = useEventContext();
+  let lastRect = undefined;
+  let maximize = true;
 
-  MouseEmitter.on('mousedown', e => {
+  const activateWindow = useCallback(e => {
     if (windowRef.current === e) {
       windowRef.current.classList.add(style['window--active']);
     } else {
       windowRef.current.classList.remove(style['window--active']);
     }
-  });
+  }, []);
 
   const handleMouseDown = useCallback(() => {
     MouseEmitter.emit('mousedown', windowRef.current);
-  });
+  }, []);
 
   const handleResize = useCallback(() => {
     windowRef.current.lastChild.classList.remove('mobile', 'tablet');
@@ -28,24 +30,43 @@ export default function Window({ children }) {
     } else if (rect.width <= 768) {
       windowRef.current.lastChild.classList.add('tablet');
     }
-    // let rect = windowRef.current.getBoundingClientRect();
-    // if (rect.x + rect.width > window.innerWidth)
-    //   windowRef.current.style.width = window.innerWidth - rect.x + 'px';
-    // if (rect.y + rect.height > window.innerHeight)
-    //   windowRef.current.style.height = window.innerHeight - rect.y + 'px';
-    // console.log(windowRef.current.style.width, windowRef.current.style.height);
-    // console.log(window.innerWidth, window.innerHeight);
-  });
+  }, []);
+
+  const handleClose = useCallback(() => {
+    close();
+  }, []);
+  
+  const handleMaximize = useCallback(() => {
+    if (!maximize) return;
+    lastRect = windowRef.current.getBoundingClientRect();
+    windowRef.current.style.top = 0;
+    windowRef.current.style.left = 0;
+    windowRef.current.style.height = window.innerHeight + 'px';
+    windowRef.current.style.width = window.innerWidth + 'px';
+    maximize = !maximize;
+  }, []);
+
+  const handleMinimize = useCallback(() => {
+    if (maximize) return;
+    windowRef.current.style.top = lastRect.top + 'px';
+    windowRef.current.style.left = lastRect.left + 'px';
+    windowRef.current.style.height = lastRect.height + 'px';
+    windowRef.current.style.width = lastRect.width + 'px';
+    maximize = !maximize;
+  }, []);
 
   useEffect(() => {
     if (!windowRef) {
       return;
     }
+
     const dragElementClean = dragElement(windowRef.current);
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(windowRef.current);
+    MouseEmitter.on('mousedown', activateWindow);
 
     return () => {
+      MouseEmitter.off('mousedown', activateWindow);
       resizeObserver.disconnect();
       dragElementClean();
     };
@@ -54,9 +75,9 @@ export default function Window({ children }) {
   return (
     <div className={style.window} ref={windowRef} onMouseDown={handleMouseDown}>
       <div className={style.window__header}>
-        <div className={`${style['fake-button']} ${style['fake-button--close']}`}></div>
-        <div className={`${style['fake-button']} ${style['fake-button--minimize']}`}></div>
-        <div className={`${style['fake-button']} ${style['fake-button--zoom']}`}></div>
+        <div className={`${style['fake-button']} ${style['fake-button--close']}`} onClick={handleClose}></div>
+        <div className={`${style['fake-button']} ${style['fake-button--minimize']}`} onClick={handleMinimize}></div>
+        <div className={`${style['fake-button']} ${style['fake-button--zoom']}`} onClick={handleMaximize}></div>
       </div>
       <div className={style.window__body}>
         {children}

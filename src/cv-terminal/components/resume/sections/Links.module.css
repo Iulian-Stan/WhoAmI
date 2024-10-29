@@ -1,21 +1,21 @@
-.social__container {
+.link__container {
   display: grid;
   gap: 1rem;
   grid-template-columns: max-content;
 }
 
-.social__link {
+.link__link {
   display: inline-flex;
   align-items: center;
   font-size: var(--small-font-size);
   color: var(--text-color);
 }
 
-.social__link:hover {
+.link__link:hover {
   color: var(--text-color-title);
 }
 
-.social__icon {
+.link__icon {
   font-size: 1.2rem;
   margin-right: 0.25rem;
 }

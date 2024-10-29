@@ -1,20 +1,18 @@
 import React from 'react';
 import Home from './sections/Home';
-import Socials from './sections/Socials';
+import Links from './sections/Links';
 import Profile from './sections/Profile';
 import Education from './sections/Education';
-import Skills from './sections/Skills';
 import * as style from './ResumeLeft.module.css';
 
 
-export default function ResumeLeft() {
+export default function ResumeLeft({ bio, links, profile, education, skills }) {
   return (
     <div className={style.resume__left}>
-      <Home />
-      <Socials />
-      <Profile />
-      <Education />
-      <Skills />
+      <Home bio={bio} />
+      <Links links={links} />
+      <Profile profile={profile} />
+      <Education education={education} />
     </div>
   );
 }

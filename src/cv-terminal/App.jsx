@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import EventEmitter from './libs/EventEmitter';
 import { EventContext } from './libs/EventContext';
-import { actionCommands } from './libs/actionCommands';
-import Window from './components/Window';
-import Terminal from './components/terminal/Terminal';
-import Resume from './components/resume/Resume';
+import WindowManager from './components/WindowManager';
 
 /**
  * @typedef Command
@@ -21,13 +18,13 @@ import Resume from './components/resume/Resume';
 
 export default function App() {
 
-  const [commands, setCommands] = useState();
+  const [data, setData] = useState();
   const MouseEmitter = new EventEmitter();
 
   useEffect(() => {
-    fetch('./commands.json')
+    fetch('./whoami.json')
       .then(response => {
-        response.json().then(setCommands);
+        response.json().then(setData);
       })
       .catch(err => {
         console.log(err);
@@ -35,17 +32,12 @@ export default function App() {
       });
   }, []);
 
-  if (!commands)
-    return
+  if (!data)
+    return;
 
   return (
     <EventContext.Provider value={MouseEmitter}>
-      <Window>
-        <Resume />
-      </Window>
-      <Window>
-        <Terminal commands={commands} actionCommands={actionCommands}/>
-      </Window>
+      <WindowManager data={data} />
     </EventContext.Provider>
   );
 }

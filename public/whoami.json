@@ -1,69 +1,132 @@
 {
-  "social": {
-    "twitter": "https://x.com/youleek",
-    "facebook": "https://www.facebook.com/iulian.stan.5268",
+  "bio": {
+    "firstName": "Iulian",
+    "lastName": "STAN",
+    "birth": "23 April 1989",
+    "nationality": [
+      "Moldova",
+      "Romania"
+    ],
+    "location": {
+      "city": "Bucharest",
+      "country": "ROMANIA"
+    },
+    "occupation": "Software Engineer",
+    "education": "M.Sc. in Artificial Intelligence"
+  },
+  "links": {
     "gmail": "mailto:iulian.stan0450@gmail.com",
     "linkedin": "https://www.linkedin.com/in/iulian-stan",
     "github": "https://github.com/Iulian-Stan"
   },
-  "keywords": [
-    "Developer",
-    "Engineer",
-    "Tech Enthusiast"
+  "languages": [
+    "Romanian",
+    "Russian",
+    "English",
+    "French"
   ],
-  "bio": {
-    "about": "Hi, my name is Iulian and I am a senior software engineer. I am forever learner when it comes to latest advances in software and hardware technologies. I am keen on trying them in my own DIY projects.",
-    "intro": "Born and raised in Balti (Republic of Moldova), currently leaving in Bucharest (Romania). Holding a masters degree in Artificial Intelligence with 10+ years of experience in software engineering.",
-    "name": "Iulian Stan",
-    "birth": "23 April 1989",
-    "nationality": "Moldova, Romania",
-    "location": "Bucharest, Romania",
-    "degree": "Master",
-    "languages": "Romanian, Russian, English, French",
-    "trivia": "I hold a driving license for almost all kinds of vehicles." 
-  },
-  "skills": "I am most experienced in the following technologies (frameworks and corresponding programming languages):",
-  "technologies": [
+  "skills": [
+    "Embedded C",
+    "C++ Boost",
+    "Node.js",
+    "JavaScript / React / Webpack"
+  ],
+  "experience": [
     {
-      "stack": "Embedded C",
-      "proficiency": "100" 
+      "roles": [
+        "Software Engineer",
+        "Tech Lead"
+      ],
+      "years": {
+        "to": "present",
+        "from": "2017"
+      },
+      "company": {
+        "name": "NXP Semiconductors",
+        "link": "https://www.nxp.com/"
+      },
+      "location": {
+        "city": "Bucharest",
+        "country": "ROMANIA"
+      },
+      "responsibilities": [
+        "Redesign an existing application in compliance with new SRS",
+        "Create prototypes, design documents and software architecture",
+        "Clarify technical details of the requirements",
+        "Split requirements into stories/tasks",
+        "Clarify technical details and plan the implementation",
+        "Implement features and tests",
+        "Write documentation",
+        "Support customers and community users"
+      ]
     },
     {
-      "stack": "C++, Boost",
-      "proficiency": "100" 
+      "roles": [
+        "Software Engineer"
+      ],
+      "years": {
+        "to": "2017",
+        "from": "2015"
+      },
+      "company": {
+        "name": "Endava",
+        "link": "https://www.endava.com/"
+      },
+      "location": {
+        "city": "Chisinau",
+        "country": "MOLDOVA"
+      },
+      "responsibilities": [
+        "Develop new micro-services",
+        "Adjust existing components",
+        "Providing web interface to ease the interaction with the server",
+        "Integrate developed components into a SaaS environment"
+      ]
     },
     {
-      "stack": "Node.js JavaScript",
-      "proficiency": "100" 
-    },
-    {
-      "stack": "React JavaScript Webpack",
-      "proficiency": "90" 
-    },
-    {
-      "stack": "Python",
-      "proficiency": "75" 
-    },
-    {
-      "stack": "HTML/CSS",
-      "proficiency": "60" 
-    },
-    {
-      "stack": "AWS",
-      "proficiency": "50" 
-    },
-    {
-      "stack": "MatLAB",
-      "proficiency": "50" 
+      "roles": [
+        "Test Automation Engineer"
+      ],
+      "years": {
+        "to": "2015",
+        "from": "2014"
+      },
+      "company": {
+        "name": "Allied Testing",
+        "link": "https://www.alliedtesting.com/"
+      },
+      "location": {
+        "city": "Chisinau",
+        "country": "MOLDOVA"
+      },
+      "responsibilities": [
+        "Maintaining current test suit up to date (updating existing tests according to applications changes)",
+        "Extending the suite by implementing new test as per specifications from SAT test cases",
+        "Running automated test packs"
+      ]
     }
   ],
-  "resume": "I had quite an interesting journey from a bachelor of computer science to a professional software engineer. I had the opportunity to work in a multiple technological companies. My experience spans across embedded systems, communication protocols, desktop application and web interfaces.",
   "education": [
     {
-      "title": "Master's degree, Artificial Intelligence",
-      "years": "2012 - 2014",
-      "location": "POLITEHNICA University, Bucharest, Romania",
-      "thesis": "Intelligent UAV (Unmanned Aerial Vehicles)",
+      "degree": "Master",
+      "area": "Artificial Intelligence",
+      "years": {
+        "to": "2014",
+        "from": "2012"
+      },
+      "university": {
+        "name": "POLITEHNICA",
+        "link": "https://upb.ro/en/"
+      },
+      "department": {
+        "name": "Faculty of Automatic Control and Computers",
+        "link": "https://acs.pub.ro/en/"
+      },
+      "location": {
+        "city": "Bucharest",
+        "country": "ROMANIA"
+      },
+      "thesis": "Intelligent UAVs (Unmanned Aerial Vehicles)",
       "topics": [
         "Knowledge Representation and Reasoning",
         "Type Systems and Functional Programming",
@@ -73,13 +136,27 @@
         "Data Mining",
         "Self-organizing Systems",
         "Neural Networks"
-      ],
-      "summary": "I pursued a master's degree to deepen my artificial intelligence knowledge in such areas as: Knowledge representation and Reasoning, Multi-agent Systems, NLP (Natural Language Processing), Statistical Learning and Neural Networks. I researched and ended my studies with a thesis on Intelligent UAV (Unmanned Aerial Vehicles)."
-    },    
+      ]
+    },
     {
-      "title": "Bachelor's degree, Information Technology",
-      "years": "2008 - 2012",
-      "location": "Gheorghe Asachi University, Iasi, Romania",
+      "degree": "Bachelor",
+      "area": "Information Technology",
+      "years": {
+        "to": "2012",
+        "from": "2008"
+      },
+      "university": {
+        "name": "Gheorghe ASACHI",
+        "link": "https://www.tuiasi.ro/?lang=en/"
+      },
+      "department": {
+        "name": "Department of Computer Science and Engineering",
+        "link": "http://www.dc.ac.legacy.tuiasi.ro/en/home/"
+      },
+      "location": {
+        "city": "Iasi",
+        "country": "ROMANIA"
+      },
       "thesis": "Remote process control in a computer network (Windows & Linux)",
       "topics": [
         "Computing system's fundamentals",
@@ -93,58 +170,21 @@
         "Graphic processing systems",
         "Distributed systems",
         "Web technologies"
-      ],
-      "summary": "My bachelor studies were focused on the fundamentals of computer science, software engineering, embedded systems, graphical processing and artificial intelligence. I participated in ACM programming contest and Freescale Race Challenge. My final diploma project was Remote process control in a computer network (Windows & Linux)."
-    }
-  ],
-  "work_experience": [
-    {
-      "title": "Software Engineer / Tech Lead",
-      "years": "2017 - present",
-      "location": "NXP Semiconductors, Bucharest, Romania",
-      "responsibilities": [
-        "Redesign an existing application in compliance with new SRS",
-        "Create prototypes, design documents and software architecture",
-        "Clarify technical details of the requirements",
-        "Split requirements into stories/tasks",
-        "Clarify technical details and plan the implementation",
-        "Implement features and tests",
-        "Write documentation",
-        "Support customers and community users"
-      ]
-    },
-    {
-      "title": "Software Engineer",
-      "years": "2015 - 2017",
-      "location": "Endava, Chisinau, Moldova",
-      "responsibilities": [
-        "Develop new micro-services",
-        "Adjust existing components",
-        "Providing web interface to ease the interaction with the server",
-        "Integrate developed components into a SaaS environment"
-      ]
-    },
-    {
-      "title": "Test Automation Engineer",
-      "years": "2014 - 2015",
-      "location": "Allied Testing, Chisinau, Moldova",
-      "responsibilities": [
-        "Maintaining current test suit up to date (updating existing tests according to applications changes)",
-        "Extending the suite by implementing new test as per specifications from SAT test cases",
-        "Running automated test packs"
       ]
     }
   ],
-  "stats": [
+  "interests": [
     {
-      "title": "Open Repositories",
-      "class": "fa-brands fa-github",
-      "count": 39
+      "name": "Gaming",
+      "boxicon": "bx bx-joystick"
     },
     {
-      "title": "Free Certifications",
-      "class": "fa-solid fa-graduation-cap",
-      "count": 29
+      "name": "Tech",
+      "boxicon": "bx bx-chip"
+    },
+    {
+      "name": "Sports",
+      "boxicon": "bx bx-basketball"
     }
   ]
 }

@@ -23,7 +23,7 @@
 .education__line {
   display: block;
   width: 2px;
-  height: 90%;
+  height: 100%;
   background-color: var(--text-color-light);
   transform: translate(7px, 0);
 }

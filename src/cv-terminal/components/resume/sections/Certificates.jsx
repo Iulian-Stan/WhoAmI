@@ -8,18 +8,18 @@ export default function Certificates() {
 
       <div className={style.certificate__container}>
         <div className={style.certificate__content}>
-          <h3 className={style.certificate__title}>Something something (2012)</h3>
-          <p className={style.certificate__description}>ASdsf sdf asdf asdf asdf sdaf sadf htgh tyjtj jhycgh gh fdsgh gfh gfh sgf hsgh.</p>
+          <h3 className={style.certificate__title}>Certificate1 (2020)</h3>
+          <p className={style.certificate__description}>Certificate1 description.</p>
         </div>
 
         <div className={style.certificate__content}>
-          <h3 className={style.certificate__title}>Something something (2012)</h3>
-          <p className={style.certificate__description}>ASdsf sdf asdf asdf asdf sdaf sadf htgh tyjtj jhycgh gh fdsgh gfh gfh sgf hsgh.</p>
+          <h3 className={style.certificate__title}>Certificate2 (2021)</h3>
+          <p className={style.certificate__description}>Certificate2 description.</p>
         </div>
 
         <div className={style.certificate__content}>
-          <h3 className={style.certificate__title}>Something something (2012)</h3>
-          <p className={style.certificate__description}>ASdsf sdf asdf asdf asdf sdaf sadf htgh tyjtj jhycgh gh fdsgh gfh gfh sgf hsgh.</p>
+          <h3 className={style.certificate__title}>Certificate3 (2022)</h3>
+          <p className={style.certificate__description}>Certificate3 description.</p>
         </div>
       </div>
     </section>
