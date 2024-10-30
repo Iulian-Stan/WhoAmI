@@ -1,7 +1,7 @@
 
 import { darkMode } from './darkMode';
 import { stringToDom } from './stringToDom';
-import img from '../../common/images/halloween-bg.jpg';
+import img from '../resources/images/halloween-bg.jpg';
 
 const bgImage = stringToDom(`<img src="${img}" class="halloween-bg" alt="Halloween background" />`);
 

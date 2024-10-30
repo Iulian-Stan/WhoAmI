@@ -1,6 +1,6 @@
 import React from 'react';
 import * as style from './Home.module.css';
-import img from '../../../../common/images/profile.png';
+import img from '../../../resources/images/profile.png';
 
 export default function Home({ bio }) {
   return (

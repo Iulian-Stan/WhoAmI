@@ -13,10 +13,7 @@ module.exports = (_env, argv) => {
     }
   };
   return {
-    entry: {
-      'cv-page': './src/cv-page/index.jsx',
-      'cv-terminal': './src/cv-terminal/index.jsx'
-    }, // Entry point of your application
+    entry: './src/index.jsx', // Entry point of your application
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'assets/js/[name].[contenthash:8].js', // Output bundle file name
@@ -73,13 +70,7 @@ module.exports = (_env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(__dirname, 'public', 'index.html'),
-        filename: 'index2.html',
-        chunks: ['cv-page'],
-      }),
-      new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'public', 'index.html'),
         filename: 'index.html',
-        chunks: ['cv-terminal'],
       }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash:8].css',
