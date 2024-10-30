@@ -9,8 +9,8 @@ export default function Languages({ languages }) {
       <div className={style.languages__container}>
         <ul className={style.languages__content}>
           {
-            languages.map(language => (
-              <li className={style.languages__name}>
+            languages.map((language, index) => (
+              <li key={index} className={style.languages__name}>
                 <span className={style.languages__circle}></span> {language}
               </li>
             ))

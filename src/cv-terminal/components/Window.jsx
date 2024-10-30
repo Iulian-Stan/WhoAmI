@@ -3,23 +3,24 @@ import { useEventContext } from '../libs/EventContext';
 import { dragElement } from '../libs/draggable';
 import * as style from './Window.module.css';
 
-export default function Window({ children, close }) {
+export default function Window({ children, id }) {
 
   const windowRef = useRef();
-  const MouseEmitter = useEventContext();
+  const eventEmitter = useEventContext();
   let lastRect = undefined;
   let maximize = true;
 
   const activateWindow = useCallback(e => {
-    if (windowRef.current === e) {
+    if (!windowRef || !windowRef.current) return;
+    if (id === e) {
       windowRef.current.classList.add(style['window--active']);
     } else {
       windowRef.current.classList.remove(style['window--active']);
     }
   }, []);
 
-  const handleMouseDown = useCallback(() => {
-    MouseEmitter.emit('mousedown', windowRef.current);
+  const handleMouseDown = useCallback(e => {
+    eventEmitter.emit('mousedown', id);
   }, []);
 
   const handleResize = useCallback(() => {
@@ -33,7 +34,7 @@ export default function Window({ children, close }) {
   }, []);
 
   const handleClose = useCallback(() => {
-    close();
+    eventEmitter.emit('windowclose', id);;
   }, []);
   
   const handleMaximize = useCallback(() => {
@@ -63,10 +64,10 @@ export default function Window({ children, close }) {
     const dragElementClean = dragElement(windowRef.current);
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(windowRef.current);
-    MouseEmitter.on('mousedown', activateWindow);
+    eventEmitter.on('windowactiv', activateWindow);
 
     return () => {
-      MouseEmitter.off('mousedown', activateWindow);
+      eventEmitter.off('windowactiv', activateWindow);
       resizeObserver.disconnect();
       dragElementClean();
     };

@@ -1,6 +1,7 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { actionCommands } from '../libs/actionCommands';
 import { staticCommands } from '../libs/staticCommands';
+import { useEventContext } from '../libs/EventContext';
 import Window from './Window';
 import Resume from './resume/Resume';
 import Terminal from './terminal/Terminal';
@@ -13,14 +14,16 @@ const WindowContent = {
 export default function WindowManager({ data }) {
 
   const commands = useMemo(() => staticCommands(data), [data]);
+  const eventEmitter = useEventContext();
 
   const createWindow = useCallback(content => {
     let key = Date.now().toString();
+    eventEmitter.emit('windowactiv', key);
     switch (content) {
       case WindowContent.resume:
-        return <Window key={key} close={() => removeWindow(key)}><Resume data={data}/></Window>;
+        return <Window key={key} id={key}><Resume data={data}/></Window>;
       case WindowContent.terminal:
-        return <Window key={key} close={() => removeWindow(key)}><Terminal commands={commands} actionCommands={customCommands}/></Window>;
+        return <Window key={key} id={key}><Terminal commands={commands} actionCommands={customCommands}/></Window>;
     }
   }, []);
 
@@ -49,6 +52,19 @@ export default function WindowManager({ data }) {
   ], []);
 
   const [windows, setWindows] = useState([createWindow(WindowContent.terminal)]);
+
+  const handleMouseDown = useCallback(id => {
+    eventEmitter.emit('windowactiv', id);
+  }, []);
+
+  useEffect(() => {
+    eventEmitter.on('mousedown', handleMouseDown);
+    eventEmitter.on('windowclose', removeWindow);
+    return () => {
+      eventEmitter.off('windowclose', removeWindow);
+      eventEmitter.off('mousedown', handleMouseDown);
+    }
+  }, []);
 
   return windows;
 }

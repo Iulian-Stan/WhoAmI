@@ -8,8 +8,8 @@ export default function Interests({ interests }) {
 
       <div className={style.interests__container}>
         {
-          interests.map(interest => (
-            <div className={style.interests__content}>
+          interests.map((interest, index) => (
+            <div key={index} className={style.interests__content}>
               <i className={`${style.interests__icon} ${interest.boxicon}`}></i>
               <span className={style.interests__name}>{interest.name}</span>
             </div>

@@ -14,11 +14,11 @@ export default function Terminal({ commands, actionCommands }) {
   const terminalCliRef = useRef();
   const MouseEmitter = useEventContext();
 
-  MouseEmitter.on('mousedown', e => {
-    if (e.contains(terminalCliRef.current)) {
-      terminalCliRef.current.firstChild.firstChild.focus();
-    }
-  });
+  // MouseEmitter.on('mousedown', e => {
+  //   if (e.contains(terminalCliRef.current)) {
+  //     terminalCliRef.current.firstChild.firstChild.focus();
+  //   }
+  // });
 
   useEffect(() => {
     if (!Array.isArray(commands))

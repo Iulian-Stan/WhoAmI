@@ -9,8 +9,8 @@ export default function Skills({ skills }) {
       <div className={style.skills__content}>
         <ul className={style.skills__data}>
           {
-            skills.map(skill => (
-              <li className={style.skills__name}>
+            skills.map((skill, index) => (
+              <li key={index} className={style.skills__name}>
                 <span className={style.skills__circle}></span> {skill}
               </li>
             ))
