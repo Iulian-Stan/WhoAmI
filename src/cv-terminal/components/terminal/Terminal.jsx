@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import { useEventContext } from '../../libs/EventContext';
+import React, { useEffect, useRef } from 'react';
+import { useEventContext } from '../../libs/eventContext';
 import DOMPurify from 'dompurify';
 import * as style from './Terminal.module.css';
 
@@ -9,16 +9,16 @@ const test = ` ______     __    __     ______   ______     ______     __    __  
  \\ \\_____\\  \\ \\__\/         \\ \\_\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_\\ \\ \\_\\  \\ \\_\\  \\ \\_\\\\'\\_\\  \\ \\_\\ \\_\\  \\ \\_____\\
   \\\/_____\/   \\\/_\/           \\\/_\/   \\\/_____\/   \\\/_\/\\\/_\/   \\\/_\/  \\\/_\/   \\\/_\/   \\\/_\/ \\\/_\/   \\\/_\/\\\/_\/   \\\/_____\/`;
 
-export default function Terminal({ commands, actionCommands }) {
+export default function Terminal({ commands, actionCommands, windowID }) {
 
   const terminalCliRef = useRef();
-  const MouseEmitter = useEventContext();
+  const eventEmitter = useEventContext();
 
-  // MouseEmitter.on('mousedown', e => {
-  //   if (e.contains(terminalCliRef.current)) {
-  //     terminalCliRef.current.firstChild.firstChild.focus();
-  //   }
-  // });
+  eventEmitter.on('mousedown', id => {
+    if (id === windowID) {
+      terminalCliRef.current.lastChild.previousSibling.firstChild.focus();
+    }
+  });
 
   useEffect(() => {
     if (!Array.isArray(commands))

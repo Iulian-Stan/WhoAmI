@@ -1,23 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import WindowManager from './components/WindowManager';
-import { EventContext } from './libs/EventContext';
+import { EventContext } from './libs/eventContext';
 import EventEmitter from './libs/EventEmitter';
-import { stringToDom } from './libs/stringToDom';
-import { darkMode } from './libs/darkMode';
-import img from '../common/images/halloween-bg.jpg';
-
-/**
- * @typedef Command
- * @property {string} command
- * @property {string} responseType
- * @property {string?} value
- * @property {string[]?} headers
- * @property {string[]?} rows
- */
-
-/**
- * @type {Command[]} commands
- */
+import { halloweenMode } from './libs/halloweenMode';
+import { christmasMode } from './libs/christmasMode';
 
 export default function App() {
 
@@ -35,16 +21,14 @@ export default function App() {
       });
   }, []);
 
-  // Easter egg for Halloween, adding bats
   const now = new Date();
+  // Easter egg for Halloween
   if (now.getMonth() === 9 && now.getDate() >= 28) {
-    if (!document.body.classList.contains('halloween')) {
-      // add image
-      const html = `<img src="${img}" class="halloween-bg" alt="Halloween background" />`;
-      document.body.prepend(stringToDom(html));
-      document.body.classList.add('halloween');
-      darkMode(true);
-    }
+    halloweenMode(true);
+  }
+  // Christmas Easter egg, adding Santa
+  if (now.getMonth() === 11) {
+    christmasMode(true);
   }
 
   if (!data)

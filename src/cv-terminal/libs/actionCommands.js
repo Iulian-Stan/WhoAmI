@@ -1,8 +1,8 @@
 import confetti from 'canvas-confetti';
 import Fireworks from 'fireworks-js';
-import { stringToDom } from './stringToDom';
 import { darkMode } from './darkMode';
-import img from '../../common/images/halloween-bg.jpg';
+import { halloweenMode } from './halloweenMode';
+import { christmasMode } from './christmasMode';
 
 export const actionCommands = [
   {
@@ -88,24 +88,19 @@ export const actionCommands = [
       return '🎆';
     }
   },
-  // {
-  //   command: 'hohoho',
-  //   responseType: 'action',
-  //   execute: () => {
-  //     return '🎅🎁';
-  //   }
-  // },
+  {
+    command: 'hohoho',
+    responseType: 'action',
+    execute: () => {
+      christmasMode(true);
+      return '🎅🎁';
+    }
+  },
   {
     command: 'boo',
     responseType: 'action',
     execute: () => {
-      if (!document.body.classList.contains('halloween')) {
-        // add image
-        const html = `<img src="${img}" class="halloween-bg" alt="Halloween background" />`;
-        document.body.prepend(stringToDom(html));
-        document.body.classList.add('halloween');
-        darkMode(true);
-      }
+      halloweenMode(true);
       return '🎃';
     }
   }

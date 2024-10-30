@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { useEventContext } from '../libs/EventContext';
+import { useEventContext } from '../libs/eventContext';
 import { dragElement } from '../libs/draggable';
 import * as style from './Window.module.css';
 
@@ -19,7 +19,7 @@ export default function Window({ children, id }) {
     }
   }, []);
 
-  const handleMouseDown = useCallback(e => {
+  const handleMouseDown = useCallback(() => {
     eventEmitter.emit('mousedown', id);
   }, []);
 
@@ -34,7 +34,7 @@ export default function Window({ children, id }) {
   }, []);
 
   const handleClose = useCallback(() => {
-    eventEmitter.emit('windowclose', id);;
+    eventEmitter.emit('windowclose', id);
   }, []);
   
   const handleMaximize = useCallback(() => {
@@ -64,10 +64,10 @@ export default function Window({ children, id }) {
     const dragElementClean = dragElement(windowRef.current);
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(windowRef.current);
-    eventEmitter.on('windowactiv', activateWindow);
+    eventEmitter.on('windowactivate', activateWindow);
 
     return () => {
-      eventEmitter.off('windowactiv', activateWindow);
+      eventEmitter.off('windowactivate', activateWindow);
       resizeObserver.disconnect();
       dragElementClean();
     };
