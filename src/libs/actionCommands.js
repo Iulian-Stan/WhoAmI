@@ -1,5 +1,6 @@
 import confetti from 'canvas-confetti';
 import Fireworks from 'fireworks-js';
+import { downloadCV } from './downloadCV';
 import { darkMode } from './darkMode';
 import { halloweenMode } from './halloweenMode';
 import { christmasMode } from './christmasMode';
@@ -10,10 +11,7 @@ export const actionCommands = [
     description: 'Set dark theme',
     responseType: 'action',
     execute: () => {
-      if (darkMode(true)) {
-        return 'You are now in dark mode.';
-      }
-      return 'You are already in dark mode.';
+      return darkMode(true) ? '🌒' : '🌑';
     }
   },
   {
@@ -21,18 +19,18 @@ export const actionCommands = [
     description: 'Set light theme',
     responseType: 'action',
     execute: () => {
-      if (darkMode(false)) {
-        return 'Your are now in light mode.';
-      }
-      return 'You are already in light mode.';
+      return darkMode(false) ? '🌖' : '🌕';
     }
   },
-  // {
-  //   command: 'get cv',
-  //   description: 'Download CV',
-  //   responseType: 'action',
-  //   execute: () => {}
-  // },
+  {
+    command: 'get cv',
+    description: 'Download CV',
+    responseType: 'action',
+    execute: () => {
+      downloadCV();
+      return '📄';
+    }
+  },
   {
     command: 'pif',
     responseType: 'action',
@@ -70,7 +68,7 @@ export const actionCommands = [
         spread: 120,
         startVelocity: 45,
       });
-      return 'Let\'s go !';
+      return '🎉';
     }
   },
   {
