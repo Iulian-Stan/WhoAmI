@@ -5,6 +5,6 @@ link.setAttribute("download", "CV - Iulian STAN.pdf");
 /**
  * Downloads PDF version of the resume
  */
-export function downloadCV() {
+export default function downloadCV() {
   link.click();
 }

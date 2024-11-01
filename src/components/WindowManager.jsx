@@ -31,6 +31,10 @@ export default function WindowManager({ data }) {
     setWindows(prevState => prevState.filter(window => window.key !== key));
   }, []);
 
+  const removeAll = useCallback(() => {
+    setWindows([]);
+  }, []);
+
   const customCommands = useMemo(() => [...actionCommands,
     {
       command: 'show cv',
@@ -60,7 +64,9 @@ export default function WindowManager({ data }) {
   useEffect(() => {
     eventEmitter.on('mousedown', handleMouseDown);
     eventEmitter.on('windowclose', removeWindow);
+    eventEmitter.on('closeall', removeAll);
     return () => {
+      eventEmitter.off('closeall', removeAll);
       eventEmitter.off('windowclose', removeWindow);
       eventEmitter.off('mousedown', handleMouseDown);
     }

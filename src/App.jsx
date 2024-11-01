@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import WindowManager from './components/WindowManager';
 import { EventContext } from './libs/eventContext';
 import EventEmitter from './libs/EventEmitter';
-import { halloweenMode } from './libs/halloweenMode';
-import { christmasMode } from './libs/christmasMode';
+import halloweenMode from './libs/actions/halloweenMode';
+import christmasMode from './libs/actions/christmasMode';
 
 export default function App() {
 
